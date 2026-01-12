@@ -65,6 +65,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+### Connecting to the backend 🔧
+
+- **Local development:** Start your backend server (default Spring Boot port is `8080`) and run `npm start`. The development server will proxy API requests to `http://localhost:8080` using the `proxy` setting in `package.json`.
+
+- **Production build:** Set `REACT_APP_API_URL` to your backend origin before building, for example:
+
+  ```bash
+  REACT_APP_API_URL=https://your-backend.example.com npm run build
+  ```
+
+  This will bake the backend URL into the production bundle.
+
+- **Same-origin hosting:** If you deploy frontend and backend to the same origin, you can leave `REACT_APP_API_URL` unset and the app will use relative API paths (e.g., `/api/orders`). Ensure your backend allows CORS or is served from the same origin.
+
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
